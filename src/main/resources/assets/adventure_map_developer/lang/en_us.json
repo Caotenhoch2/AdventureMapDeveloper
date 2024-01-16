@@ -1,0 +1,23 @@
+{
+  "gui.adventure_map_developer.config": "Adventure Map Developer",
+  "gui.adventure_map_developer.showInvisibleBlocks": "Show invisible blocks: %s",
+  "gui.adventure_map_developer.showInvisibleEntities": "Show invisible entities: %s",
+  "gui.adventure_map_developer.enabled": "Enabled:",
+  "gui.adventure_map_developer.keybinding": "Keybinds",
+  "gui.adventure_map_developer.%s": "%s",
+  "gui.adventure_map_developer.on": "On",
+  "gui.adventure_map_developer.off": "Off",
+  "category.adventure_map_developer.keybindings": "Adventure Map Developer",
+  "keybinding.adventure_map_developer.showInvisibleBlocks": "Show invisible blocks",
+  "keybinding.adventure_map_developer.showInvisibleEntities": "Show invisible entities",
+  "keybinding.adventure_map_developer.1": "Command 1",
+  "keybinding.adventure_map_developer.2": "Command 2",
+  "keybinding.adventure_map_developer.3": "Command 3",
+  "keybinding.adventure_map_developer.4": "Command 4",
+  "keybinding.adventure_map_developer.5": "Command 5",
+  "keybinding.adventure_map_developer.6": "Command 6",
+  "keybinding.adventure_map_developer.7": "Command 7",
+  "keybinding.adventure_map_developer.8": "Command 8",
+  "keybinding.adventure_map_developer.9": "Command 9",
+  "keybinding.adventure_map_developer.10": "Command 10"
+}

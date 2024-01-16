@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "eu.caoten.adventure_map_developer.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "ArmorStandEntityRenderMixin",
+    "ClientWorldMixin",
+    "LivingEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

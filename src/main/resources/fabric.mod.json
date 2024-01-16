@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "adventure_map_developer",
+  "version": "${version}",
+  "name": "Adventure Map Developer",
+  "description": "A simple mod created to help building (adventure) maps",
+  "authors": [
+    "Caoten_hoch2"
+  ],
+  "contact": {
+    "homepage": "https://caotenhoch2.wixsite.com/caotenhoch2",
+    "sources": "https://github.com/Caotenhoch2/AdventureMapDeveloper",
+    "issues": "https://discord.gg/5fbT8jJ"
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/adventure_map_developer/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "eu.caoten.adventure_map_developer.AdventureMapDeveloper"
+    ],
+    "modmenu": [
+      "eu.caoten.adventure_map_developer.api.ModMenuAPI"
+    ]
+  },
+  "mixins": [
+    "adventure_map_developer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
