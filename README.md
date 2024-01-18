@@ -1,7 +1,6 @@
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/JPR5tCTh?logo=modrinth)
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/JPR5tCTh)
 ![Modrinth Version](https://img.shields.io/modrinth/v/JPR5tCTh)
-![Discord](https://img.shields.io/discord/676784734512349209?logo=discord)
 ![GitHub License](https://img.shields.io/github/license/Caotenhoch2/AdventureMapDeveloper)
 
 A simple mod created to help building (adventure) maps.
