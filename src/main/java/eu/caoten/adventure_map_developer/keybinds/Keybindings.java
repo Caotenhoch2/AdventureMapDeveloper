@@ -1,6 +1,7 @@
 package eu.caoten.adventure_map_developer.keybinds;
 
 import eu.caoten.adventure_map_developer.config.ClientConfig;
+import eu.caoten.adventure_map_developer.config.api.ClientConfigSystem;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigValues;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
@@ -101,9 +102,11 @@ public class Keybindings {
     public static void onPress(MinecraftClient client) {
         while (showInvisibleBlocks.wasPressed()) {
             ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS);
+            ClientConfigSystem.writeConfig(ClientConfig.NAME);
         }
         while (showInvisibleEntities.wasPressed()) {
             ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_ENTITIES);
+            ClientConfigSystem.writeConfig(ClientConfig.NAME);
         }
         ClientPlayNetworkHandler networkHandler = client.getNetworkHandler();
         if (ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.KEYBIND_1_ENABLED).get()) {
