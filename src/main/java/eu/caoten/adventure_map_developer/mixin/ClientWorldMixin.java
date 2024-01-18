@@ -27,25 +27,20 @@ public abstract class ClientWorldMixin {
     @Unique
     private static final Set<Item> BLOCK_MARKER_ITEMS;
 
-    @Shadow @Final private MinecraftClient client;
-
     @Shadow public abstract void randomBlockDisplayTick(int centerX, int centerY, int centerZ, int radius, Random random, @Nullable Block block, BlockPos.Mutable pos);
 
 
     @Inject(at = @At("HEAD"), method = "doRandomBlockDisplayTicks", cancellable = true)
     private void getBlockParticle(int centerX, int centerY, int centerZ, CallbackInfo ci) {
         if (ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS).get()) {
-            GameMode gameMode = this.client.interactionManager.getCurrentGameMode();
-            if (gameMode == GameMode.CREATIVE || gameMode == GameMode.SPECTATOR) {
-                for (Item item : BLOCK_MARKER_ITEMS) {
-                    Random random = Random.create();
-                    BlockItem blockItem = (BlockItem)item;
-                    Block block = blockItem.getBlock();
-                    BlockPos.Mutable mutable = new BlockPos.Mutable();
-                    for(int j = 0; j < 667; ++j) {
-                        this.randomBlockDisplayTick(centerX, centerY, centerZ, 16, random, block, mutable);
-                        this.randomBlockDisplayTick(centerX, centerY, centerZ, ClientConfigValues.getIntegerOption(ClientConfig.NAME, ClientConfig.BLOCK_MAX_DISTANCE).get(), random, block, mutable);
-                    }
+            for (Item item : BLOCK_MARKER_ITEMS) {
+                Random random = Random.create();
+                BlockItem blockItem = (BlockItem)item;
+                Block block = blockItem.getBlock();
+                BlockPos.Mutable mutable = new BlockPos.Mutable();
+                for(int j = 0; j < 667; ++j) {
+                    this.randomBlockDisplayTick(centerX, centerY, centerZ, 16, random, block, mutable);
+                    this.randomBlockDisplayTick(centerX, centerY, centerZ, ClientConfigValues.getIntegerOption(ClientConfig.NAME, ClientConfig.BLOCK_MAX_DISTANCE).get(), random, block, mutable);
                 }
             }
             ci.cancel();
