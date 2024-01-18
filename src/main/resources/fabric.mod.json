@@ -21,6 +21,9 @@
     ],
     "modmenu": [
       "eu.caoten.adventure_map_developer.api.ModMenuAPI"
+    ],
+    "client": [
+      "eu.caoten.adventure_map_developer.AdventureMapDeveloperClient"
     ]
   },
   "mixins": [

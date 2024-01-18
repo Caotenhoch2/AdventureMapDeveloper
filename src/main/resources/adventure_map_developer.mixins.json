@@ -6,6 +6,7 @@
   "client": [
     "ArmorStandEntityRenderMixin",
     "ClientWorldMixin",
+    "EntityRenderDispatcherMixin",
     "LivingEntityRendererMixin"
   ],
   "injectors": {
