@@ -32,6 +32,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         int l = j + 210;
         k+=10;
         this.key1 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 1"));
+        this.key1.setMaxLength(Integer.MAX_VALUE);
         this.key1.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_1).get());
         this.key1.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_1, this.key1.getText());
@@ -45,6 +46,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key2 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 2"));
+        this.key2.setMaxLength(Integer.MAX_VALUE);
         this.key2.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_2).get());
         this.key2.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_2, this.key2.getText());
@@ -58,6 +60,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key3 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 3"));
+        this.key3.setMaxLength(Integer.MAX_VALUE);
         this.key3.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_3).get());
         this.key3.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_3, this.key3.getText());
@@ -71,6 +74,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key4 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 4"));
+        this.key4.setMaxLength(Integer.MAX_VALUE);
         this.key4.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_4).get());
         this.key4.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_4, this.key4.getText());
@@ -84,6 +88,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key5 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 5"));
+        this.key5.setMaxLength(Integer.MAX_VALUE);
         this.key5.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_5).get());
         this.key5.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_5, this.key5.getText());
@@ -97,6 +102,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key6 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 6"));
+        this.key6.setMaxLength(Integer.MAX_VALUE);
         this.key6.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_6).get());
         this.key6.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_6, this.key6.getText());
@@ -110,6 +116,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key7 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 7"));
+        this.key7.setMaxLength(Integer.MAX_VALUE);
         this.key7.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_7).get());
         this.key7.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_7, this.key7.getText());
@@ -123,6 +130,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key8 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 8"));
+        this.key8.setMaxLength(Integer.MAX_VALUE);
         this.key8.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_8).get());
         this.key8.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_8, this.key8.getText());
@@ -136,6 +144,7 @@ public class KeyBindingsScreen extends SettingsScreen {
         }).dimensions(l, k, 50, 20).build());
         k+=35;
         this.key9 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 9"));
+        this.key9.setMaxLength(Integer.MAX_VALUE);
         this.key9.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_9).get());
         this.key9.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_9, this.key9.getText());
@@ -148,7 +157,8 @@ public class KeyBindingsScreen extends SettingsScreen {
             ClientConfigSystem.writeConfig(ClientConfig.NAME);
         }).dimensions(l, k, 50, 20).build());
         k+=35;
-        this.key10 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 01"));
+        this.key10 = new TextFieldWidget(this.textRenderer, j, k, 200, 20, Text.literal("Keybinding 10"));
+        this.key10.setMaxLength(Integer.MAX_VALUE);
         this.key10.setText(ClientConfigValues.getStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_10).get());
         this.key10.setChangedListener(string -> {
             ClientConfigValues.writeStringOption(ClientConfig.NAME, ClientConfig.KEYBIND_10, this.key10.getText());
