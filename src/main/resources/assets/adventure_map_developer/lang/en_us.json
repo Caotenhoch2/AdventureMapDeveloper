@@ -2,6 +2,10 @@
   "gui.adventure_map_developer.config": "Adventure Map Developer",
   "gui.adventure_map_developer.showInvisibleBlocks": "Show invisible blocks: %s",
   "gui.adventure_map_developer.showInvisibleEntities": "Show invisible entities: %s",
+  "gui.adventure_map_developer.sendFeedback": "Send Feedback: %s",
+  "gui.adventure_map_developer.sendFeedback.tooltip": "Should a message be displayed when using a hotkey to toggle the visibility of invisible entities and blocks",
+  "gui.adventure_map_developer.sendSoundFeedback": "Send Sound Feedback: %s",
+  "gui.adventure_map_developer.sendSoundFeedback.tooltip": "Should a sound be played when using a hotkey to toggle the visibility of invisible entities and blocks",
   "gui.adventure_map_developer.enabled": "Enabled:",
   "gui.adventure_map_developer.keybinding": "Keybinds",
   "gui.adventure_map_developer.%s": "%s",
@@ -19,5 +23,9 @@
   "keybinding.adventure_map_developer.7": "Command 7",
   "keybinding.adventure_map_developer.8": "Command 8",
   "keybinding.adventure_map_developer.9": "Command 9",
-  "keybinding.adventure_map_developer.10": "Command 10"
+  "keybinding.adventure_map_developer.10": "Command 10",
+  "message.adventure_map_developer.shown": "shown",
+  "message.adventure_map_developer.hidden": "hidden",
+  "message.adventure_map_developer.blocks": "Invisible blocks are now %s!",
+  "message.adventure_map_developer.entities": "Invisible entities are now %s!"
 }

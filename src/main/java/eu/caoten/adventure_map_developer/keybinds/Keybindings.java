@@ -8,6 +8,8 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 
 public class Keybindings {
     private static KeyBinding showInvisibleBlocks;
@@ -103,10 +105,24 @@ public class Keybindings {
         while (showInvisibleBlocks.wasPressed()) {
             ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS);
             ClientConfigSystem.writeConfig(ClientConfig.NAME);
+            buttonSound();
+            ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_FEEDBACK).ifPresent(aBoolean -> {
+                if (aBoolean) {
+                    boolean status = ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS).get();
+                    MinecraftClient.getInstance().inGameHud.setOverlayMessage(Text.literal("[AMD] ").append(Text.translatable("message.adventure_map_developer.blocks", status ? Text.translatable("message.adventure_map_developer.shown") : Text.translatable("message.adventure_map_developer.hidden"))), false);
+                }
+            });
         }
         while (showInvisibleEntities.wasPressed()) {
             ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_ENTITIES);
             ClientConfigSystem.writeConfig(ClientConfig.NAME);
+            buttonSound();
+            ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_FEEDBACK).ifPresent(aBoolean -> {
+                if (aBoolean) {
+                    boolean status = ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_ENTITIES).get();
+                    MinecraftClient.getInstance().inGameHud.setOverlayMessage(Text.literal("[AMD] ").append(Text.translatable("message.adventure_map_developer.entities", status ? Text.translatable("message.adventure_map_developer.shown") : Text.translatable("message.adventure_map_developer.hidden"))), false);
+                }
+            });
         }
         ClientPlayNetworkHandler networkHandler = client.getNetworkHandler();
         if (ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.KEYBIND_1_ENABLED).get()) {
@@ -189,5 +205,13 @@ public class Keybindings {
                 }
             }
         }
+    }
+
+    public static void buttonSound() {
+        ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_SOUND_FEEDBACK).ifPresent(aBoolean -> {
+            if (aBoolean) {
+                MinecraftClient.getInstance().player.playSound(SoundEvents.UI_BUTTON_CLICK.value(), 1, 1);
+            }
+        });
     }
 }

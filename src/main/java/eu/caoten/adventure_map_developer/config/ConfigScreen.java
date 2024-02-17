@@ -25,6 +25,17 @@ public class ConfigScreen extends SettingsScreen {
             ClientConfigSystem.writeConfig(ClientConfig.NAME);
         }));
         k+=25;
+        this.addDrawableChild(Buttons.toggleButtonWidget(i, k, false, "gui.adventure_map_developer.sendFeedback", ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_FEEDBACK).get(), "gui.adventure_map_developer.sendFeedback.tooltip", button -> {
+            ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_FEEDBACK);
+            button.setMessage(Buttons.toggle("gui.adventure_map_developer.sendFeedback", ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_FEEDBACK).get()));
+            ClientConfigSystem.writeConfig(ClientConfig.NAME);
+        }));
+        this.addDrawableChild(Buttons.toggleButtonWidget(i, k, true, "gui.adventure_map_developer.sendSoundFeedback", ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_SOUND_FEEDBACK).get(), "gui.adventure_map_developer.sendSoundFeedback.tooltip", button -> {
+            ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_SOUND_FEEDBACK);
+            button.setMessage(Buttons.toggle("gui.adventure_map_developer.sendSoundFeedback", ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.GIVE_SOUND_FEEDBACK).get()));
+            ClientConfigSystem.writeConfig(ClientConfig.NAME);
+        }));
+        k+=25;
         this.addDrawableChild(Buttons.normalButtonWidget(i, k, false, "gui.adventure_map_developer.keybinding", button -> {
             this.client.setScreen(new KeyBindingsScreen(this));
         }));

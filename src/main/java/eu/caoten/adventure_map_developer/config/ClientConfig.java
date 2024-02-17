@@ -6,6 +6,8 @@ public class ClientConfig {
     public static final String NAME = "adventure_map_developer";
     public static final String SHOW_INVISIBLE_BLOCKS = "ShowInvisibleBlocks";
     public static final String SHOW_INVISIBLE_ENTITIES = "ShowInvisibleEntities";
+    public static final String GIVE_FEEDBACK = "GiveFeedback";
+    public static final String GIVE_SOUND_FEEDBACK = "GiveSoundFeedback";
     public static final String KEYBIND_1 = "Keybinding1";
     public static final String KEYBIND_2 = "Keybinding2";
     public static final String KEYBIND_3 = "Keybinding3";
@@ -33,6 +35,8 @@ public class ClientConfig {
                 new ClientConfigBuilder.Comment("comment1", "This is the config for the Adventure Map Developer mod"),
                 new ClientConfigBuilder.BooleanOption(SHOW_INVISIBLE_BLOCKS, false),
                 new ClientConfigBuilder.BooleanOption(SHOW_INVISIBLE_ENTITIES, false),
+                new ClientConfigBuilder.BooleanOption(GIVE_FEEDBACK, true),
+                new ClientConfigBuilder.BooleanOption(GIVE_SOUND_FEEDBACK, true),
                 new ClientConfigBuilder.IntegerOption(BLOCK_MAX_DISTANCE, 32).setMin(16),
                 new ClientConfigBuilder.Comment("comment2", "These are the commands executed when pressing the associated keybinding"),
                 new ClientConfigBuilder.StringOption(KEYBIND_1, ""),
