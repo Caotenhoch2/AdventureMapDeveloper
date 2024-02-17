@@ -44,9 +44,12 @@ public class ClientConfigValues {
      * @return The option, if it exists
      */
     public static Optional<Boolean> getBooleanOption(String configID, String optionID) {
-        ClientConfigBuilder.Option option = Registries.CLIENT_CONFIGS.get(new Identifier(configID)).get().clientConfigOptionList.get(optionID);
-        if (option instanceof ClientConfigBuilder.BooleanOption booleanOption) {
-            return Optional.of(Objects.requireNonNullElse(booleanOption.value, booleanOption.DEFAULT));
+        Optional<ClientConfigBuilder> builder = Registries.CLIENT_CONFIGS.get(new Identifier(configID));
+        if (builder.isPresent()) {
+            ClientConfigBuilder.Option option = builder.get().clientConfigOptionList.get(optionID);
+            if (option instanceof ClientConfigBuilder.BooleanOption booleanOption) {
+                return Optional.of(Objects.requireNonNullElse(booleanOption.value, booleanOption.DEFAULT));
+            }
         }
         return Optional.empty();
     }
