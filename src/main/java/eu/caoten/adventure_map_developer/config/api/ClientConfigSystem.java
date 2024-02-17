@@ -40,7 +40,7 @@ public class ClientConfigSystem {
                 }
             }
             writeFull(builder);
-            AdventureMapDeveloper.LOGGER.info(AdventureMapDeveloper.LOGGER_PREFIX + "Read client config " + builder.ID);
+            AdventureMapDeveloper.LOGGER.debug(AdventureMapDeveloper.LOGGER_PREFIX + "Read client config " + builder.ID);
         }
     }
 
@@ -70,7 +70,7 @@ public class ClientConfigSystem {
     public static void write(ClientConfigBuilder builder) {
         prepareConfig();
         writeFull(builder);
-        AdventureMapDeveloper.LOGGER.info(AdventureMapDeveloper.LOGGER_PREFIX + "Wrote client config " + builder.ID);
+        AdventureMapDeveloper.LOGGER.debug(AdventureMapDeveloper.LOGGER_PREFIX + "Wrote client config " + builder.ID);
     }
 
     private static void writeFull(ClientConfigBuilder builder) {
