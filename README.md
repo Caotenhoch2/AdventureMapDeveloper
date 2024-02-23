@@ -5,9 +5,9 @@
 
 ### Download over on [modrinth](https://modrinth.com/mod/adventure-map-developer)!
 
-A simple mod created to help building (adventure) maps.
+A simple mod created to help building (adventure) maps. 
 
-It adds 10 possible keybinds, which can each be assigned to a command using an ingame gui. When the keybind is enabled enabled and pressed, the command assigned is then executed.
+It adds 10 possible keybinds, which can each be assigned to a command using an ingame gui. When the keybind is enabled enabled and pressed, the command assigned is then executed. 
 
 It also adds a toggle, which enables the player to see invisible entities, aswell one which enables him to see otherwise invisible blocks like barriers, structure voids etc. These can either be toggled using an ingame gui or with the help of a keybind.
 
@@ -19,4 +19,4 @@ With no option toggled on:
 With everything toggled on:
 ![Invisible Blocks and Entities, aswell as Marker and Interaction Entities are visible](https://cdn.modrinth.com/data/cached_images/9fd420c21f1c4d43a48ee9ff2c8bc458bd68a335.png)
 
-<p style="text-align: center;"><span style="font-size: 14px;"><a href="https://discord.gg/5fbT8jJ"><span style="font-family: impact, sans-serif;"><img src="https://cdn.discordapp.com/attachments/846405509711790131/944639699727831080/Discord.png" alt="" width="256" height="64" /></span></a></span></p>
+[![discord-singular](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-singular_vector.svg)](https://discord.gg/5fbT8jJ)
