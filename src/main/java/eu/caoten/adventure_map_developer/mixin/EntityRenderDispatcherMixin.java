@@ -48,9 +48,9 @@ public abstract class EntityRenderDispatcherMixin {
         if (entity instanceof InteractionEntity && ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_ENTITIES).get()) {
             Vec3d vec3d2 = entity.getRotationVec(tickDelta);
             Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-            Matrix3f matrix3f = matrices.peek().getNormalMatrix();
-            vertices.vertex(matrix4f, 0.0F, entity.getStandingEyeHeight(), 0.0F).color(0, 0, 255, 255).normal(matrix3f, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z).next();
-            vertices.vertex(matrix4f, (float)(vec3d2.x * 2.0), (float)((double)entity.getStandingEyeHeight() + vec3d2.y * 2.0), (float)(vec3d2.z * 2.0)).color(0, 0, 255, 255).normal(matrix3f, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z).next();
+            MatrixStack.Entry entry = matrices.peek();
+            vertices.vertex(matrix4f, 0.0F, entity.getStandingEyeHeight(), 0.0F).color(0, 0, 255, 255).normal(entry, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z).next();
+            vertices.vertex(matrix4f, (float)(vec3d2.x * 2.0), (float)((double)entity.getStandingEyeHeight() + vec3d2.y * 2.0), (float)(vec3d2.z * 2.0)).color(0, 0, 255, 255).normal(entry, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z).next();
             ci.cancel();
         }
     }
