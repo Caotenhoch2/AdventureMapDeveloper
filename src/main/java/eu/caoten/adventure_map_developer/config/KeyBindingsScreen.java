@@ -175,6 +175,7 @@ public class KeyBindingsScreen extends SettingsScreen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        super.render(context, mouseX, mouseY, delta);
         int j = this.width / 2 - 100;
         int k = this.height / 6 - 12;
         context.drawText(this.textRenderer, Text.translatable("keybinding.adventure_map_developer.1"), j, k, 0xFFFFFF, true);
@@ -197,7 +198,6 @@ public class KeyBindingsScreen extends SettingsScreen {
         context.drawText(this.textRenderer, Text.translatable("keybinding.adventure_map_developer.9"), j, k, 0xFFFFFF, true);
         k+=35;
         context.drawText(this.textRenderer, Text.translatable("keybinding.adventure_map_developer.10"), j, k, 0xFFFFFF, true);
-        super.render(context, mouseX, mouseY, delta);
     }
 
     /*
