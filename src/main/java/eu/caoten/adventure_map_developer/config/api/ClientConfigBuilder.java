@@ -33,7 +33,7 @@ public class ClientConfigBuilder {
      */
     public void build() {
         file = save_directory + "/" + ID + ".properties";
-        Registries.CLIENT_CONFIGS.register(new Identifier(ID), this);
+        Registries.CLIENT_CONFIGS.register(Identifier.of(ID), this);
     }
 
     /**

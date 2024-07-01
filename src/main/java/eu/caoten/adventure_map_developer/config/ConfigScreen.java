@@ -5,6 +5,7 @@ import eu.caoten.adventure_map_developer.buttons.Buttons;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigSystem;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigValues;
 import eu.caoten.adventure_map_developer.screen.SettingsScreen;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 
 public class ConfigScreen extends SettingsScreen {
@@ -16,6 +17,7 @@ public class ConfigScreen extends SettingsScreen {
     public int buttons(int i, int k) {
         this.addDrawableChild(Buttons.toggleButtonWidget(i, k, false, "gui.adventure_map_developer.showInvisibleBlocks", ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS).get(), button -> {
             ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS);
+            MinecraftClient.getInstance().worldRenderer.reload();
             button.setMessage(Buttons.toggle("gui.adventure_map_developer.showInvisibleBlocks", ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS).get()));
             ClientConfigSystem.writeConfig(ClientConfig.NAME);
         }));

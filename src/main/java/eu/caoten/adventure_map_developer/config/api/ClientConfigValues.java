@@ -16,7 +16,7 @@ public class ClientConfigValues {
      * @return The option, if it exists
      */
     public static Optional<String> getStringOption(String configID, String optionID) {
-        ClientConfigBuilder.Option option = Registries.CLIENT_CONFIGS.get(new Identifier(configID)).get().clientConfigOptionList.get(optionID);
+        ClientConfigBuilder.Option option = Registries.CLIENT_CONFIGS.get(Identifier.of(configID)).get().clientConfigOptionList.get(optionID);
         if (option instanceof ClientConfigBuilder.StringOption stringOption) {
             return Optional.of(Objects.requireNonNullElse(stringOption.value, stringOption.DEFAULT));
         }
@@ -30,7 +30,7 @@ public class ClientConfigValues {
      * @return The option, if it exists
      */
     public static Optional<Integer> getIntegerOption(String configID, String optionID) {
-        ClientConfigBuilder.Option option = Registries.CLIENT_CONFIGS.get(new Identifier(configID)).get().clientConfigOptionList.get(optionID);
+        ClientConfigBuilder.Option option = Registries.CLIENT_CONFIGS.get(Identifier.of(configID)).get().clientConfigOptionList.get(optionID);
         if (option instanceof ClientConfigBuilder.IntegerOption integerOption) {
             return Optional.of(Objects.requireNonNullElse(integerOption.value, integerOption.DEFAULT));
         }
@@ -44,7 +44,7 @@ public class ClientConfigValues {
      * @return The option, if it exists
      */
     public static Optional<Boolean> getBooleanOption(String configID, String optionID) {
-        Optional<ClientConfigBuilder> builder = Registries.CLIENT_CONFIGS.get(new Identifier(configID));
+        Optional<ClientConfigBuilder> builder = Registries.CLIENT_CONFIGS.get(Identifier.of(configID));
         if (builder.isPresent()) {
             ClientConfigBuilder.Option option = builder.get().clientConfigOptionList.get(optionID);
             if (option instanceof ClientConfigBuilder.BooleanOption booleanOption) {
@@ -61,7 +61,7 @@ public class ClientConfigValues {
      * @param value The new value of the option
      */
     public static void writeStringOption(String configID, String optionID, String value) {
-        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(new Identifier(configID));
+        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(Identifier.of(configID));
         if (optionalBuilder.isPresent()) {
             ClientConfigBuilder.Option option = optionalBuilder.get().clientConfigOptionList.get(optionID);
             if (option instanceof ClientConfigBuilder.StringOption stringOption) {
@@ -77,7 +77,7 @@ public class ClientConfigValues {
      * @param value The new value of the option
      */
     public static void writeIntegerOption(String configID, String optionID, Integer value) {
-        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(new Identifier(configID));
+        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(Identifier.of(configID));
         if (optionalBuilder.isPresent()) {
             ClientConfigBuilder.Option option = optionalBuilder.get().clientConfigOptionList.get(optionID);
             if (option instanceof ClientConfigBuilder.IntegerOption integerOption) {
@@ -93,7 +93,7 @@ public class ClientConfigValues {
      * @param value The new value of the option
      */
     public static void writeBooleanOption(String configID, String optionID, Boolean value) {
-        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(new Identifier(configID));
+        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(Identifier.of(configID));
         if (optionalBuilder.isPresent()) {
             ClientConfigBuilder.Option option = optionalBuilder.get().clientConfigOptionList.get(optionID);
             if (option instanceof ClientConfigBuilder.BooleanOption booleanOption) {
@@ -108,7 +108,7 @@ public class ClientConfigValues {
      * @param optionID The name of the boolean option
      */
     public static void toggleBooleanOption(String configID, String optionID) {
-        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(new Identifier(configID));
+        Optional<ClientConfigBuilder> optionalBuilder = Registries.CLIENT_CONFIGS.get(Identifier.of(configID));
         if (optionalBuilder.isPresent()) {
             ClientConfigBuilder.Option option = optionalBuilder.get().clientConfigOptionList.get(optionID);
             if (option instanceof ClientConfigBuilder.BooleanOption booleanOption) {

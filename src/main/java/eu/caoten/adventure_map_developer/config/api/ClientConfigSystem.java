@@ -19,7 +19,7 @@ public class ClientConfigSystem {
      * @param name The name of the config
      */
     public static void read(String name) {
-        Optional<ClientConfigBuilder> builder = Registries.CLIENT_CONFIGS.get(new Identifier(name));
+        Optional<ClientConfigBuilder> builder = Registries.CLIENT_CONFIGS.get(Identifier.of(name));
         builder.ifPresent(ClientConfigSystem::read);
     }
 
@@ -58,8 +58,8 @@ public class ClientConfigSystem {
      * @param configID The id (name) of the config that is supposed to be written
      */
     public static void writeConfig(String configID) {
-        if (Registries.CLIENT_CONFIGS.contains(new Identifier(configID))) {
-            ClientConfigSystem.write(Registries.CLIENT_CONFIGS.get(new Identifier(configID)).get());
+        if (Registries.CLIENT_CONFIGS.contains(Identifier.of(configID))) {
+            ClientConfigSystem.write(Registries.CLIENT_CONFIGS.get(Identifier.of(configID)).get());
         }
     }
 

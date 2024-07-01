@@ -5,14 +5,14 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "ArmorStandEntityRenderMixin",
+    "BarrierBlockMixin",
     "ClientWorldMixin",
     "EntityRenderDispatcherMixin",
-    "LivingEntityRendererMixin"
+    "LightBlockMixin",
+    "StructureVoidMixin",
+    "EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-    "LightBlockMixin"
-  ]
+  }
 }

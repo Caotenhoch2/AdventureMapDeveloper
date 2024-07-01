@@ -13,7 +13,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.InteractionEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -44,13 +43,13 @@ public abstract class EntityRenderDispatcherMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "renderHitbox", cancellable = true)
-    private static void renderHitbox(MatrixStack matrices, VertexConsumer vertices, Entity entity, float tickDelta, CallbackInfo ci) {
+    private static void renderHitbox(MatrixStack matrices, VertexConsumer vertices, Entity entity, float tickDelta, float red, float green, float blue, CallbackInfo ci) {
         if (entity instanceof InteractionEntity && ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_ENTITIES).get()) {
             Vec3d vec3d2 = entity.getRotationVec(tickDelta);
             Matrix4f matrix4f = matrices.peek().getPositionMatrix();
             MatrixStack.Entry entry = matrices.peek();
-            vertices.vertex(matrix4f, 0.0F, entity.getStandingEyeHeight(), 0.0F).color(0, 0, 255, 255).normal(entry, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z).next();
-            vertices.vertex(matrix4f, (float)(vec3d2.x * 2.0), (float)((double)entity.getStandingEyeHeight() + vec3d2.y * 2.0), (float)(vec3d2.z * 2.0)).color(0, 0, 255, 255).normal(entry, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z).next();
+            vertices.vertex(matrix4f, 0.0F, entity.getStandingEyeHeight(), 0.0F).color(0, 0, 255, 255).normal(entry, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z);
+            vertices.vertex(matrix4f, (float)(vec3d2.x * 2.0), (float)((double)entity.getStandingEyeHeight() + vec3d2.y * 2.0), (float)(vec3d2.z * 2.0)).color(0, 0, 255, 255).normal(entry, (float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z);
             ci.cancel();
         }
     }

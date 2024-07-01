@@ -1,10 +1,15 @@
 package eu.caoten.adventure_map_developer;
 
+import eu.caoten.adventure_map_developer.command.LockCommand;
+import eu.caoten.adventure_map_developer.command.SelectionArgument;
 import eu.caoten.adventure_map_developer.config.ClientConfig;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigSystem;
 import eu.caoten.adventure_map_developer.keybinds.Keybindings;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
+import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,8 +25,10 @@ public class AdventureMapDeveloper implements ModInitializer {
     @Override
     public void onInitialize() {
         ClientConfig.register();
+        LockCommand.register();
         ClientConfigSystem.read(ClientConfig.NAME);
         Keybindings.register();
         ClientTickEvents.END_CLIENT_TICK.register(Keybindings::onPress);
+        ArgumentTypeRegistry.registerArgumentType(Identifier.of(MOD_ID, "selection"), SelectionArgument.class, ConstantArgumentSerializer.of(SelectionArgument::selection));
     }
 }

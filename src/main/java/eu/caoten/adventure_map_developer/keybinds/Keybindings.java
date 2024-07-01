@@ -103,6 +103,7 @@ public class Keybindings {
 
     public static void onPress(MinecraftClient client) {
         while (showInvisibleBlocks.wasPressed()) {
+            MinecraftClient.getInstance().worldRenderer.reload();
             ClientConfigValues.toggleBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_BLOCKS);
             ClientConfigSystem.writeConfig(ClientConfig.NAME);
             buttonSound();
