@@ -27,5 +27,17 @@
   "message.adventure_map_developer.shown": "shown",
   "message.adventure_map_developer.hidden": "hidden",
   "message.adventure_map_developer.blocks": "Invisible blocks are now %s!",
-  "message.adventure_map_developer.entities": "Invisible entities are now %s!"
+  "message.adventure_map_developer.entities": "Invisible entities are now %s!",
+  "commands.adventure_map_developer.entity.valid": "Please select a valid entity!",
+  "commands.adventure_map_developer.entity": "Please select an entity!",
+  "commands.adventure_map_developer.block": "Please select a valid block!",
+  "commands.adventure_map_developer.fail": "Could not lock the selection!",
+  "commands.adventure_map_developer.block.lock.single.lock": "Locked the block at %s with the key %s!",
+  "commands.adventure_map_developer.block.lock.single": "Locked the block at %s!",
+  "commands.adventure_map_developer.entities.selection": "Locked %s out of %s entities!",
+  "commands.adventure_map_developer.entities": "Locked all %s entities!",
+  "commands.adventure_map_developer.range": "Successfully locked %s blocks and entities!",
+  "tag.block.c.lockable": "Lockable",
+  "tag.block.c.lockable_block_entities": "Lockable block entities",
+  "tag.entity_type.c.lockable": "Lockable"
 }
