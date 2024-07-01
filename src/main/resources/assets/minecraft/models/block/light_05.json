@@ -1,0 +1,6 @@
+{
+  "parent": "adventure_map_developer:block/light",
+  "textures": {
+    "texture": "adventure_map_developer:block/light_05"
+  }
+}
