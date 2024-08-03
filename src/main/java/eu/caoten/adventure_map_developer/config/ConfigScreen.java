@@ -7,6 +7,9 @@ import eu.caoten.adventure_map_developer.config.api.ClientConfigValues;
 import eu.caoten.adventure_map_developer.screen.SettingsScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.util.Util;
+
+import java.util.List;
 
 public class ConfigScreen extends SettingsScreen {
     public ConfigScreen(Screen parent) {
@@ -40,6 +43,16 @@ public class ConfigScreen extends SettingsScreen {
         k+=25;
         this.addDrawableChild(Buttons.normalButtonWidget(i, k, false, "gui.adventure_map_developer.keybinding", button -> {
             this.client.setScreen(new KeyBindingsScreen(this));
+        }));
+        this.addDrawableChild(Buttons.normalButtonWidget(i, k, true, "gui.adventure_map_developer.open_websites", button -> {
+            List<String> websites = Websites.getWebsites();
+            if (websites.isEmpty()) {
+                this.client.setScreen(new InformationScreen(this));
+            } else {
+                websites.forEach(url -> {
+                    Util.getOperatingSystem().open(url);
+                });
+            }
         }));
         return k;
     }

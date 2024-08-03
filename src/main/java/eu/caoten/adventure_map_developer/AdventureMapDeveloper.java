@@ -2,6 +2,7 @@ package eu.caoten.adventure_map_developer;
 
 import eu.caoten.adventure_map_developer.command.*;
 import eu.caoten.adventure_map_developer.config.ClientConfig;
+import eu.caoten.adventure_map_developer.config.Websites;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigSystem;
 import eu.caoten.adventure_map_developer.keybinds.Keybindings;
 import net.fabricmc.api.ModInitializer;
@@ -30,6 +31,7 @@ public class AdventureMapDeveloper implements ModInitializer {
         HideCommand.register();
         RevealCommand.register();
         Keybindings.register();
+        Websites.createNewFile();
         ClientTickEvents.END_CLIENT_TICK.register(Keybindings::onPress);
         ArgumentTypeRegistry.registerArgumentType(Identifier.of(MOD_ID, "selection"), SelectionArgument.class, ConstantArgumentSerializer.of(SelectionArgument::selection));
     }
