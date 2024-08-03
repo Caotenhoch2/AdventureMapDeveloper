@@ -28,7 +28,6 @@ public class ClientConfig {
     public static final String KEYBIND_8_ENABLED = "Keybinding8Enabled";
     public static final String KEYBIND_9_ENABLED = "Keybinding9Enabled";
     public static final String KEYBIND_10_ENABLED = "Keybinding10Enabled";
-    public static final String BLOCK_MAX_DISTANCE = "MaxParticleDistance";
 
     public static void register() {
         new ClientConfigBuilder(NAME,
@@ -37,7 +36,6 @@ public class ClientConfig {
                 new ClientConfigBuilder.BooleanOption(SHOW_INVISIBLE_ENTITIES, false),
                 new ClientConfigBuilder.BooleanOption(GIVE_FEEDBACK, true),
                 new ClientConfigBuilder.BooleanOption(GIVE_SOUND_FEEDBACK, true),
-                new ClientConfigBuilder.IntegerOption(BLOCK_MAX_DISTANCE, 32).setMin(16),
                 new ClientConfigBuilder.Comment("comment2", "These are the commands executed when pressing the associated keybinding"),
                 new ClientConfigBuilder.StringOption(KEYBIND_1, ""),
                 new ClientConfigBuilder.BooleanOption(KEYBIND_1_ENABLED, true),
