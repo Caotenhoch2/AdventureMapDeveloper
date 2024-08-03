@@ -1,7 +1,6 @@
 package eu.caoten.adventure_map_developer;
 
-import eu.caoten.adventure_map_developer.command.LockCommand;
-import eu.caoten.adventure_map_developer.command.SelectionArgument;
+import eu.caoten.adventure_map_developer.command.*;
 import eu.caoten.adventure_map_developer.config.ClientConfig;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigSystem;
 import eu.caoten.adventure_map_developer.keybinds.Keybindings;
@@ -24,9 +23,12 @@ public class AdventureMapDeveloper implements ModInitializer {
      */
     @Override
     public void onInitialize() {
+        ClientConfigSystem.read(ClientConfig.NAME);
         ClientConfig.register();
         LockCommand.register();
-        ClientConfigSystem.read(ClientConfig.NAME);
+        UnlockCommand.register();
+        HideCommand.register();
+        RevealCommand.register();
         Keybindings.register();
         ClientTickEvents.END_CLIENT_TICK.register(Keybindings::onPress);
         ArgumentTypeRegistry.registerArgumentType(Identifier.of(MOD_ID, "selection"), SelectionArgument.class, ConstantArgumentSerializer.of(SelectionArgument::selection));

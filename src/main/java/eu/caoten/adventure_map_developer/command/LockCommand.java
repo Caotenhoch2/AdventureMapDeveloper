@@ -39,7 +39,7 @@ public class LockCommand {
     public static final SimpleCommandExceptionType INVALID_ENTITY_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.adventure_map_developer.entity.valid"));
     public static final SimpleCommandExceptionType SELECT_ENTITY_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.adventure_map_developer.entity"));
     public static final SimpleCommandExceptionType SELECT_VALID_BLOCK_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.adventure_map_developer.block"));
-    public static final SimpleCommandExceptionType FAILED_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.adventure_map_developer.fail"));
+    public static final SimpleCommandExceptionType FAILED_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.adventure_map_developer.lock.fail"));
 
     public static void register() {
         CommandRegistrationCallback.EVENT.register(LockCommand::registerCommand);
@@ -84,8 +84,8 @@ public class LockCommand {
         } else {
             throw SELECT_VALID_BLOCK_EXCEPTION.create();
         }
-        if (isLockUsed) context.getSource().sendFeedback(() ->Text.translatable("commands.adventure_map_developer.block.lock.single.lock", pos.toShortString(), lock), true);
-        else context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.block.lock.single", pos.toShortString()), true);
+        if (isLockUsed) context.getSource().sendFeedback(() ->Text.translatable("commands.adventure_map_developer.lock.block.single.lock", pos.toShortString(), lock), true);
+        else context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.lock.block.single", pos.toShortString()), true);
         return 1;
     }
 
@@ -119,8 +119,8 @@ public class LockCommand {
         int finalTotal = total;
         int finalLocked = locked;
         if (locked==0) throw FAILED_EXCEPTION.create();
-        else if (locked != total) context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.entities.selection", finalLocked, finalLocked), true);
-        else context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.entities", finalTotal), true);
+        else if (locked != total) context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.lock.entities.selection", finalLocked, finalLocked), true);
+        else context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.lock.entities", finalTotal), true);
         return 1;
     }
 
@@ -180,7 +180,7 @@ public class LockCommand {
             throw FAILED_EXCEPTION.create();
         }
         int finalK = k;
-        context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.range", finalK), true);
+        context.getSource().sendFeedback(() -> Text.translatable("commands.adventure_map_developer.lock.range", finalK), true);
         return finalK;
     }
 
@@ -221,11 +221,5 @@ public class LockCommand {
         NbtCompound compound1 = blockEntity.createNbtWithIdentifyingData(blockEntity.getWorld().getRegistryManager());
         NbtCompound compound2 = compound1.copy().copyFrom(createLock(lock));
         Utils.writeBlockNBT(compound2, blockEntity, pos);
-    }
-
-    private enum RangeType {
-        SIMPLE,
-        ONLY,
-        EXCEPT
     }
 }
