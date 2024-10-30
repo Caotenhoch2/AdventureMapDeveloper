@@ -68,18 +68,18 @@ public class RevealCommand {
                 switch (rangeType) {
                     case SIMPLE -> {
                         total++;
-                        if (revealEntity(entity)) hidden++;;
+                        if (revealEntity(entity)) hidden++;
                     }
                     case EXCEPT -> {
                         if (!entityType.equals(entityTypeA)) {
                             total++;
-                            if (revealEntity(entity)) hidden++;;
+                            if (revealEntity(entity)) hidden++;
                         }
                     }
                     case ONLY -> {
                         if (entityType.equals(entityTypeA)) {
                             total++;
-                            if (revealEntity(entity)) hidden++;;
+                            if (revealEntity(entity)) hidden++;
                         }
                     }
                 }

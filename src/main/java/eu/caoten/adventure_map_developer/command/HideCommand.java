@@ -68,18 +68,18 @@ public class HideCommand {
                 switch (rangeType) {
                     case SIMPLE -> {
                         total++;
-                        if (hideEntity(entity, context)) hidden++;;
+                        if (hideEntity(entity, context)) hidden++;
                     }
                     case EXCEPT -> {
                         if (!entityType.equals(entityTypeA)) {
                             total++;
-                            if (hideEntity(entity, context)) hidden++;;
+                            if (hideEntity(entity, context)) hidden++;
                         }
                     }
                     case ONLY -> {
                         if (entityType.equals(entityTypeA)) {
                             total++;
-                            if (hideEntity(entity, context)) hidden++;;
+                            if (hideEntity(entity, context)) hidden++;
                         }
                     }
                 }

@@ -2,12 +2,10 @@ package eu.caoten.adventure_map_developer.mixin;
 
 import eu.caoten.adventure_map_developer.config.ClientConfig;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigValues;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.WorldRenderer;
+import net.minecraft.client.render.*;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.state.EntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.InteractionEntity;
@@ -23,13 +21,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(EntityRenderDispatcher.class)
 public abstract class EntityRenderDispatcherMixin {
 
-    @Shadow public abstract <T extends Entity> EntityRenderer<? super T> getRenderer(T entity);
-
-    @Inject(at = @At("TAIL"), method = "render")
-    private <E extends Entity> void render(E entity, double x, double y, double z, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
+    @Inject(at = @At("TAIL"), method = "render(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/EntityRenderer;)V")
+    private <E extends Entity, S extends EntityRenderState> void render(E entity, double x, double y, double z, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, EntityRenderer<? super E, S> renderer, CallbackInfo ci) {
         if (entity instanceof InteractionEntity && ClientConfigValues.getBooleanOption(ClientConfig.NAME, ClientConfig.SHOW_INVISIBLE_ENTITIES).get()) {
-            EntityRenderer<? super E> entityRenderer = getRenderer(entity);
-            Vec3d vec3d = entityRenderer.getPositionOffset(entity, tickDelta);
+            Vec3d vec3d = entity.getPos();
             double d = x + vec3d.getX();
             double e = y + vec3d.getY();
             double f = z + vec3d.getZ();
@@ -37,7 +32,7 @@ public abstract class EntityRenderDispatcherMixin {
             matrices.translate(d, e, f);
             matrices.translate(-vec3d.getX(), -vec3d.getY(), -vec3d.getZ());
             Box box = entity.getBoundingBox().offset(-entity.getX(), -entity.getY(), -entity.getZ());
-            WorldRenderer.drawBox(matrices, vertexConsumers.getBuffer(RenderLayer.getLines()), box, 128, 0, 255, 1.0F);
+            VertexRendering.drawBox(matrices, vertexConsumers.getBuffer(RenderLayer.getLines()), box, 128, 0, 255, 1.0F);
             matrices.pop();
         }
     }

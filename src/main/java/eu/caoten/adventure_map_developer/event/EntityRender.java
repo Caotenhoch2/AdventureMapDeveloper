@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexRendering;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.MarkerEntity;
@@ -41,7 +42,7 @@ public class EntityRender implements WorldRenderEvents.AfterEntities {
                         matrices.translate(d, e, f);
                         matrices.translate(-vec3d.getX(), -vec3d.getY(), -vec3d.getZ());
                         Box box = new Box(0, 0, 0, 0.1, 1, 0.1);
-                        WorldRenderer.drawBox(matrices, vertexConsumer, box, 0, 128, 255, 1.0F);
+                        VertexRendering.drawBox(matrices, vertexConsumer, box, 0, 128, 255, 1.0F);
                         matrices.pop();
                     }
                 }));
