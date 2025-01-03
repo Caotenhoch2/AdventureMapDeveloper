@@ -2,6 +2,7 @@ package eu.caoten.adventure_map_developer;
 
 import eu.caoten.adventure_map_developer.command.*;
 import eu.caoten.adventure_map_developer.config.ClientConfig;
+//import eu.caoten.adventure_map_developer.preset.Presets;
 import eu.caoten.adventure_map_developer.config.Websites;
 import eu.caoten.adventure_map_developer.config.api.ClientConfigSystem;
 import eu.caoten.adventure_map_developer.keybinds.Keybindings;
@@ -24,6 +25,7 @@ public class AdventureMapDeveloper implements ModInitializer {
      */
     @Override
     public void onInitialize() {
+        //Presets.load();
         ClientConfigSystem.read(ClientConfig.NAME);
         ClientConfig.register();
         LockCommand.register();

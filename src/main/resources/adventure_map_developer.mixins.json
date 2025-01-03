@@ -7,10 +7,10 @@
     "ArmorStandEntityRenderMixin",
     "BarrierBlockMixin",
     "ClientWorldMixin",
+    "EntityMixin",
     "EntityRenderDispatcherMixin",
     "LightBlockMixin",
-    "StructureVoidMixin",
-    "EntityMixin"
+    "StructureVoidMixin"
   ],
   "injectors": {
     "defaultRequire": 1
